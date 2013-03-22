@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- Le styles -->
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/typica.css">
+
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="testing/kinect.js"></script>
+		<script src="testing/heroKinectEngine.js"></script>
+		
+		<script>
+			$(function()
+			{
+				heroKinectEngine.initKinect()
+					.initCursor();
+			});
+
+			$(document).click(function()
+			{
+				window.location = "prompt.html";
+			});
+			document.onkeydown = function(evt) {
+			    evt = evt || window.event;
+			    if (evt.keyCode == 39) {
+			        window.location = "gesturesInstructions.html";			    
+			    }
+			};
+
+            setTimeout(function() {
+                window.location = "prompt.html";
+            }, 18000);
+		</script>
+
+
+
+	</head>
+	<body>
+		<div class="navbar navbar-fixed-top">
+			<img src="img/Panaroma.png"> </img>
+		</div>
+
+		<div class="row-fluid">
+
+			<div class="span6 offset3 portfolio-item">
+				<div class="span2 offset1"></div>
+				<div class="span6"><h1> How it works </h1> </div>
+				<iframe width="760" height="400" src="http://www.youtube.com/embed/LXxXSg78Rl0?autoplay=1" frameborder="0" allowfullscreen></iframe>
+			</div>
+		</div>
+		<script src="js/jquery.js"></script>
+	    <script src="js/bootstrap.js"></script>
+	    <script src="js/plugins.js"></script>
+	    <script src="js/setup.js"></script>
+	</body>	
+</html>

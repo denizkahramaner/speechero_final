@@ -1,0 +1,107 @@
+<html>
+	<head>
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script language="javascript" type="text/javascript" src="jqplot/jquery.jqplot.min.js"></script>
+		<script src="testing/monitorHero.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="jqplot/jquery.jqplot.css" />
+		<meta charset="utf-8">
+		<!-- Le styles -->
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/typica.css">
+		<link rel="stylesheet" type="text/css" href="./css/face.css">
+	  	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+	  	<style type="text/css">
+	  		#chartdiv{
+	  			margin:50px auto 50px auto;
+
+	  		}
+	  		#snapshotsTitle{
+	  			text-align: center;
+	  		}
+	  	</style>
+		<script>
+			$(function()
+			{
+				monitorHero.drawHeatMap(localStorage.heatMap, "#heatMapDiv");
+
+			});
+			function displayImgArr(imgArr,containerDiv){
+
+				for(var i=0;i<imgArr.length;i++){
+
+					newImg = document.createElement('img')
+					newImg.setAttribute('src',imgArr[i]);
+					newImg.setAttribute('width','22%');
+					//newImg.setAttribute('height',240);
+					newImg.style['margin'] = '20px'
+					
+					containerDiv.appendChild(newImg);
+				}
+
+			};
+			$(document).ready(function(){
+				var imagesDiv= document.createElement('div');
+				imagesDiv.setAttribute('id','imagesDiv');
+				imagesDiv.setAttribute('class','row-fluid')
+				document.getElementById('snapshotsContainer').appendChild(imagesDiv);
+				picsArray = ["http://i.imgur.com/5JLSYtE.jpg","http://i.imgur.com/5JLSYtE.jpg","http://i.imgur.com/5JLSYtE.jpg","http://i.imgur.com/5JLSYtE.jpg","http://i.imgur.com/5JLSYtE.jpg","http://i.imgur.com/5JLSYtE.jpg","http://i.imgur.com/5JLSYtE.jpg","http://i.imgur.com/5JLSYtE.jpg","http://i.imgur.com/5JLSYtE.jpg"];
+				//displayImgArr(picsArray,imagesDiv)
+				displayImgArr(JSON.parse(localStorage.picsArray),imagesDiv);
+				var sinPoints = []; 
+				for (var i=0; i<2*Math.PI; i+=0.4){ 
+					sinPoints.push([i, 2*Math.sin(i-.8)]); 
+				}
+				
+				var trackable = JSON.parse(localStorage.trackable);
+				var xCoords = [];
+				for (var i=0; i < trackable.length; i++){
+					xCoords.push(trackable[i].x)
+				}
+				$.jqplot('chartdiv',  [xCoords],{
+					title:"Your Movement Over Time",
+					axesDefaults:{
+						tickOptions:{
+							//showGridline:false
+						},
+						//pad:0
+					},
+					axes:{
+						xaxis:{
+							label:"Time (in seconds)",
+							pad:0
+
+						},
+						yaxis:{
+							label: "Hip Horizontal Position"
+						}
+					},
+					seriesDefaults:{
+						showMarker:false
+					}
+				});
+			});
+
+		</script>
+
+	</head>
+	<body>
+		<div class="navbar navbar-fixed-top">
+			<img src="img/Panaroma.png"> </img>
+		</div>
+
+		<div id="topChartInfo" style="float: left; margin:auto; overflow: hidden; padding-left: 80px;">
+			<div id="heatMapContainer" style='float: left;background-color:#D5462C'>
+				<div id="innerstyle" style="padding: 20px; float: left;">
+					<h2 style='text-align: center; color: #FEEAD0; margin-bottom: 0px; padding-bottom: 0px'> Your Hips </h2>
+					<img src="img/stickbro.png" style='position:absolute; height: 375px;'></img>
+					<div id="heatMapDiv" style="float:left; margin: 10px; border: 4px solid #850004"></div>
+				</div>
+			</div>
+			<div id="chartdiv" style="height:300px;width:800px; float:left; margin-top: 120px; margin-left: 40px;"></div>
+		</div>
+		<div id="snapshotsContainer" style="float: left;"></div>
+		<div id="pics" style="float: left"></pics>
+	</body>
+</html>

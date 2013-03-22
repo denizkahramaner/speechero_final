@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/typica.css">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="testing/kinect.js"></script>
+    <script src="testing/heroKinectEngine.js"></script>
+    <style>
+      .carousel-control{
+        font-size: 350;
+        color: #C33;
+      }
+        .right{
+          margin-right: 30px;
+        }
+      a{
+        font-size: 80;
+        color: #C33;
+        text-align: center;
+      }
+      a:hover{
+        text-decoration: none;
+      }
+      .active.item{
+        background:rgba(255,255,255,0.8);
+      }
+
+    </style>
+    <script>
+      $(document).ready(function(){
+        $('.carousel').carousel();
+      }); 
+    </script>
+  </head>
+  <body style="text-align: center;">
+    <div class="navbar navbar-fixed-top">
+      <img src="img/Panaroma.png"> </img>
+    </div>
+    
+      <div class="prompts" style="padding-top:40px;">
+        <div class="row" style="padding-left:30px;">
+          <div class="caption container" >
+            <div class=" offset1"></div>
+            <div class="span12">
+            <p class="large pink" id="chooseTopic" style="opacity: 1;">Choose a Topic For An Impromptu Speech</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="myCarousel" class="carousel slide" style="margin-top: 280px">
+        <ol class="carousel-indicators" style="visibility:hidden">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <!-- Carousel items -->
+        <div class="carousel-inner">
+          <div class="active item">
+            <a href="testing/rockingModulePractice.html?parameter=Greek_Life"> <p id = "choice0" > Greek Life (sucks?) </p></a>
+          </div>
+          <div class="item"><a href="testing/rockingModulePractice.html?parameter=Drug_Legalization"> <p id = "choice1" class="choice medium white text-pink add-space" style="opacity: 1;"> Drug Legalization </p> </a></div>
+          <div class="item"><a href="testing/rockingModulePractice.html?parameter=Harry_Potter"> <p id = "choice2" class="choice medium white text-pink add-space" style="opacity: 1;"> Harry Potter vs Lord of the Rings </p> </a></div>
+          <div class="item"><a href="testing/rockingModulePractice.html"> <p id = "choice3" class="choice medium white text-pink add-space" style="opacity: 1;"> Cats vs Dogs </p> </a></div>
+          <div class="item"><a href="testing/rockingModulePractice.html"> <p id = "choice4" class="choice small white text-pink add-space" style="opacity: 1;">Why your fav. TV show rocks.</p> </a></div>
+          <div class="item"><a href="testing/rockingModulePractice.html"> <p id = "choice5" class="choice medium white text-pink add-space" style="opacity: 1;"> Vamps vs Werewolves </p> </a></div>
+          <div class="item"><a href="testing/rockingModulePractice.html"> <p id = "choice6" class="choice medium white text-pink add-space" style="opacity: 1;"> Or Make Up Your Own </p> </a></div>
+        </div>
+        <!-- Carousel nav -->
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+      </div>
+    </div>
+      
+
+    
+  </body> 
+</html>

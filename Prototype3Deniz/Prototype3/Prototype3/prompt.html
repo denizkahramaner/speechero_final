@@ -1,0 +1,107 @@
+<html>
+	<head>
+		<!-- Le styles -->
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/typica.css">
+
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="testing/kinect.js"></script>
+		<script src="testing/heroKinectEngine.js"></script>
+
+		<script>
+			$(function()
+			{
+				var cursor = heroKinectEngine.initKinect();
+				cursor.initCursor();
+				cursor.addCursorRegion(document.getElementById("choice0"));
+				cursor.addCursorRegion(document.getElementById("choice1"));
+				cursor.addCursorRegion(document.getElementById("choice2"));
+				cursor.addCursorRegion(document.getElementById("choice3"));
+				cursor.addCursorRegion(document.getElementById("choice4"));
+				cursor.addCursorRegion(document.getElementById("choice5"));
+				cursor.addCursorRegion(document.getElementById("choice6"));
+
+
+			});
+
+			$(document).click(function()
+			{
+				window.location = "testing/rockingModulePractice.html";
+			});
+
+			/*$(document).click(function()
+			{
+				window.location = "prompt.html";
+			});*/
+			setTimeout(function() {
+                window.location = "testing/rockingModulePractice.html";
+            }, 15000);
+			/*
+			$(function (){
+
+            $(".choice").click(function(event)
+            {
+            	$(".span5").children().attr("class","choice medium white text-pink add-space")
+            		.css("color","#c33");
+            	$("#chooseTopic").attr("class","large pink")
+            		.css("color","white")
+            	$(event.target).css({"color": "white"});
+            	console.log($(event.target));
+            	$(event.target).css({"margin": "10px"});
+            	$(event.target).attr("class", "medium pink");
+            	console.log($(event.target));
+
+            });
+        })
+			*/
+			document.onkeydown = function(evt) {
+			    evt = evt || window.event;
+			    if (evt.keyCode == 39) {
+		    		window.location = "prompt.html";
+			    }
+			    if (evt.keyCode == 37) {
+		    		window.location = window.history.back();
+			    }
+			};
+		</script>
+	</head>
+	<body style="text-align: center;">
+		<div class="navbar navbar-fixed-top">
+			<img src="img/Panaroma.png"> </img>
+		</div>
+			<div class="prompts" style="padding-top:40px;">
+				<div class="row" style="padding-left:30px;">
+					<div class="caption container" >
+						<div class=" offset1"></div>
+						<div class="span12">
+						<p class="large pink" id="chooseTopic" style="opacity: 1;">Choose a Topic For An Impromptu Speech</p>
+					</div>
+						<div class="span5">
+							<a href="testing/rockingModulePractice.html?parameter=Greek_Life"> <p id = "choice0" class="choice medium white text-pink add-space" style="opacity: 1;"> Greek Life (sucks?) </p></a>
+							<a href="testing/rockingModulePractice.html?parameter=Drug_Legalization"> <p id = "choice1" class="choice medium white text-pink add-space" style="opacity: 1;"> Drug Legalization </p> </a>
+							<a href="testing/rockingModulePractice.html?parameter=Harry_Potter"> <p id = "choice2" class="choice medium white text-pink add-space" style="opacity: 1;"> Harry Potter vs Lord of the Rings vs Star Wars </p> </a>
+						</div>
+						<div class="span5">
+							<a href="testing/rockingModulePractice.html"> <p id = "choice3" class="choice medium white text-pink add-space" style="opacity: 1;"> Cats vs Dogs </p> </a>
+							<a href="testing/rockingModulePractice.html"> <p id = "choice4" class="choice small white text-pink add-space" style="opacity: 1;">Why your fav. TV show rocks.</p> </a>
+							<a href="testing/rockingModulePractice.html"> <p id = "choice5" class="choice medium white text-pink add-space" style="opacity: 1;"> Vamps vs Werewolves </p> </a>
+							<a href="testing/rockingModulePractice.html"> <p id = "choice6" class="choice medium white text-pink add-space" style="opacity: 1;"> Or Make Up Your Own </p> </a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row-fluid" style="padding-top:500px;">
+				<div class = "offset2">
+					<div class="caption container" >
+						<p class="large pink" style="opacity: 1;">Loading...
+						<span><img src="img/loading.gif"></img></span </p>
+					</div>
+				</div>
+			</div>
+
+		
+	</body>	
+</html>
